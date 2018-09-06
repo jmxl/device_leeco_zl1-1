@@ -20,10 +20,15 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from zl1 device
 $(call inherit-product, device/leeco/zl1/device.mk)
 
-# Inherit some common aicp stuff
-$(call inherit-product, vendor/aicp/config/common_full_phone.mk)
+# Inherit some common revengeos stuff
+$(call inherit-product, vendor/revengeos/config/common_full_phone.mk)
 
-PRODUCT_NAME := aicp_zl1
+TARGET_GAPPS_ARCH := arm64
+USE_GCAM := true
+TARGET_DENSITY := xxhdpi
+TARGET_BOOT_ANIMATION_RES := 1080
+
+PRODUCT_NAME := revengeos_zl1
 PRODUCT_DEVICE := zl1
 PRODUCT_MANUFACTURER := LeEco
 PRODUCT_BRAND := LeEco
@@ -38,8 +43,4 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
 BUILD_FINGERPRINT := LeEco/ZL1_NA/le_zl1:6.0.1/WEXNAOP5802101261S/letv01261206:user/release-keys
 
 TARGET_VENDOR := leeco
-
-# AICP Device Maintainers
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    DEVICE_MAINTAINERS="Moshe Barash (mosimchah)"
 
